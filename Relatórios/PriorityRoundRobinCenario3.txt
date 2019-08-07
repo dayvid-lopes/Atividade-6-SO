@@ -1,0 +1,6 @@
+average turnaround Time = 68353.949200 
+average Response Time = 14056.863000 
+average Waiting Time = 67810.351700 
+Cpu Usage = 0.998154 
+throughput = 0.001836 
+average Service Time = 543.597500
