@@ -1,6 +1,5 @@
 Instruções para reprodução do programa:
 
-
 para reproduzir o codigo da atividade fizemos um arquivo Makefile que facilitará a vida (se utilizado de forma correta)
     basta seguir os passos e o programa irá executar:
 
@@ -17,8 +16,6 @@ para reproduzir o codigo da atividade fizemos um arquivo Makefile que facilitar�
 
 
 Obs¹.: O codigo da atividade foi feito para linux e possui funções específicas do sistema, por conta disso poderá não funcionar corretamente em outro sistema operacional
-
-
 
 Obs².: No final de uma execução o programa cria automaticamente uma pasta, caso ela ainda não exista, chamada "Relatórios", nessa pasta serão colocados os resultados de todos os casos de testes feito durante a execução do programa
 
