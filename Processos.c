@@ -58,7 +58,7 @@ Process **ReadProcesses(int NumberOfProcesses,char *file){
 	for(int i=0;i<NumberOfProcesses;i++){
 	new = (Process*)malloc(sizeof(Process));
 	fscanf(pont,"%d%c%d%c%d%c%d%c%d%c",&new->pid,&lixo,&new->submissionTime,&lixo,&new->priority,&lixo,&new->executionTime,&lixo,&new->blockTime,&lixo);
-	new->timeToBlock = new->executionTime/2;
+	new->timeToBlock = 1;
 	new->priority++;
 	newList[i]=new;
 	cont++;
