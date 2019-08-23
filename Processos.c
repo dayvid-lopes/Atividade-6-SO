@@ -45,6 +45,20 @@ PCB **createPCBList(int numberOfProcesses,char *file){
 	return PCBList;
 }
 
+int comparadorSubmissionTime(const void **a, const void **b) {
+    int timeA, timeB;
+    timeA = ((Process*)*a)->submissionTime;
+    timeB = ((Process*)*b)->submissionTime;
+
+    if (timeA == timeB)
+        return 0;
+
+    if (timeA < timeB)
+        return -1;
+
+    return 1;
+}
+
 void PrintInfo(Process *process){
 	printf("pid = %d | submission time = %d | priority = %d | execution tie = %d | block time = %d\n",process->pid,process->submissionTime,process->priority,process->executionTime,process->blockTime);
 }
@@ -56,16 +70,14 @@ Process **ReadProcesses(int NumberOfProcesses,char *file){
 	Process *new,**newList = (Process**)malloc(sizeof(Process*)*NumberOfProcesses);
 	char lixo;
 	for(int i=0;i<NumberOfProcesses;i++){
-	new = (Process*)malloc(sizeof(Process));
-	fscanf(pont,"%d%c%d%c%d%c%d%c%d%c",&new->pid,&lixo,&new->submissionTime,&lixo,&new->priority,&lixo,&new->executionTime,&lixo,&new->blockTime,&lixo);
-	new->timeToBlock = 1;
-	new->priority++;
-	newList[i]=new;
-	cont++;
+		new = (Process*)malloc(sizeof(Process));
+		fscanf(pont,"%d%c%d%c%d%c%d%c%d%c",&new->pid,&lixo,&new->submissionTime,&lixo,&new->priority,&lixo,&new->executionTime,&lixo,&new->blockTime,&lixo);
+		new->timeToBlock = new->executionTime/2;
+		new->priority++;
+		newList[i]=new;
+		cont++;
 	}
 	fclose(pont);
-	//TODO
-	//implementar ordenação da lista newList em ordem crescente do submissionTime.
-	//para acessar o submissionTime do elemento i, use newList[i]->submissionTime
+	qsort(newList, NumberOfProcesses, sizeof(Process*), comparadorSubmissionTime);
 	return newList;
 }

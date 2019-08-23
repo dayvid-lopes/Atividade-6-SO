@@ -95,6 +95,7 @@
 
     //Processos.c
         PCB     **createPCBList(int ,char *);
+        int       comparadorSubmissionTime(const void **, const void **);
         void      PrintInfo(Process *);
         Process **ReadProcesses(int ,char *);
 
