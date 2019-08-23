@@ -6,12 +6,10 @@ void CheckNew(Circular *ready,Circular *new,int *Nready,int *Nblocked,int parall
 	PCB *iterate=new->head,*stop=iterate;
 	PCB **remove = (PCB**)malloc(sizeof(PCB*)*(*Nnew));
 	int index=0;
-	if(iterate->totalTime >= iterate->process->submissionTime)
-		remove[index++]=iterate;
+	remove[index++]=iterate;
 	iterate = iterate->next;
 	while(iterate != stop){
-		if(iterate->totalTime >= iterate->process->submissionTime)
-			remove[index++]=iterate;
+		remove[index++]=iterate;
 		iterate=iterate->next;
 	}
 	for(int i=0;i<index;i++){
