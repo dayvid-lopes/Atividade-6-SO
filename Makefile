@@ -13,7 +13,7 @@
 all: main clean run1 run2 run3 run4 run5
 
 main: main.o Controle.o Data.o Filas.o HRRN.o Loterry.o 1-Loterry.o Multilevel_Feedback.o Processos.o Round-robins.o
-			gcc -o main main.o Controle.o Data.o Filas.o HRRN.o Loterry.o 1-Loterry.o Multilevel_Feedback.o Processos.o Round-robins.o
+			gcc -o executavel main.o Controle.o Data.o Filas.o HRRN.o Loterry.o 1-Loterry.o Multilevel_Feedback.o Processos.o Round-robins.o
 			
 #-----> Distancia com o botão TAB ### e não com espaços
 
@@ -55,19 +55,15 @@ mrproper: clean
 			rm -rf main
 
 run1: 
-			./main 1
+			./executavel 1 && rm -rf executavel*
 
 run2: 
-			./main 2
+			./executavel 2 && rm -rf executavel*
 
 run3: 
-			./main 3
+			./executavel 3 && rm -rf executavel*
 
 run4: 
-			./main 4
-
+			./executavel 4 && rm -rf executavel*
 run5: 
-			./main 5
-
-a: main run
-			
+			./executavel 5 && rm -rf executavel*
