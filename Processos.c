@@ -64,5 +64,8 @@ Process **ReadProcesses(int NumberOfProcesses,char *file){
 	cont++;
 	}
 	fclose(pont);
+	//TODO
+	//implementar ordenação da lista newList em ordem crescente do submissionTime.
+	//para acessar o submissionTime do elemento i, use newList[i]->submissionTime
 	return newList;
 }
