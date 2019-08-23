@@ -27,6 +27,7 @@ void measure(Circular *finished,int numberOfProcesses,int parallelismDegree,Data
 		return;
 	zerar(data);
 	PCB *iterate=finished->head,*stop=iterate;
+	iterate->responseTime = iterate->finishTime - iterate->creationTime;
 	data->turnaroundTime = data->turnaroundTime + iterate->finishTime-iterate->creationTime;	
 	data->CpuUsage = data->CpuUsage +iterate->activeTime;
 	data->averageResponseTime = data->averageResponseTime + iterate->responseTime;
