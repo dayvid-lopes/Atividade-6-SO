@@ -51,6 +51,8 @@ void CheckReady(Circular *blocked,Circular *ready,int *Nblocked,int *Nready){
 int Clock(Circular **readyFila,Circular *ready,Circular *blocked,Circular *finished,Circular *new,PCB *active,int *Nready,int *Nblocked,int *Nfinished,int Nactive){	
 	int result=0;
 	if(Nactive==1){
+		if(active->responseTime == -1)
+			active->responseTime =active->totalTime;   
 		if(active->activeTime == active->process->timeToBlock){//checa se esta na hora de bloquear
 			if(readyFila!=NULL){
 				active->fila--;
