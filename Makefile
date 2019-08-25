@@ -24,7 +24,7 @@ SRC= $(wildcard *.c)
 OBJ= $(SRC:.c=.o)
 
 executavel: $(OBJ)
-	$(CC) -o $@ $^
+	$(CC) -O3 -o $@ $^
 
 %.o: %.c
 	@$(CC) -o $@ -c $<
