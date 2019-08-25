@@ -3,15 +3,20 @@
 
 CC= gcc
 
-1: executavel clean run1 && rm -rf executavel*
+1: executavel clean run1
+	rm -rf executavel*
 
-2: executavel clean run2 && rm -rf executavel*
+2: executavel clean run2
+	rm -rf executavel*
 
-3: executavel clean run3 && rm -rf executavel*
+3: executavel clean run3
+	rm -rf executavel*
 
-4: executavel clean run4 && rm -rf executavel*
+4: executavel clean run4
+	rm -rf executavel*
 
-5: executavel clean run5 && rm -rf executavel*
+5: executavel clean run5
+	rm -rf executavel*
 
 all: executavel clean run1 run2 run3 run4 run5 && rm -rf executavel*
 
