@@ -1,51 +1,28 @@
 #Para escrever comentários ##
 ############################# Makefile ##########################
-1: main clean run1
 
-2: main clean run2
+CC= gcc
 
-3: main clean run3
+1: executavel clean run1 && rm -rf executavel*
 
-4: main clean run4
+2: executavel clean run2 && rm -rf executavel*
 
-5: main clean run5
+3: executavel clean run3 && rm -rf executavel*
 
-all: main clean run1 run2 run3 run4 run5
+4: executavel clean run4 && rm -rf executavel*
 
-main: main.o Controle.o Data.o Filas.o HRRN.o Loterry.o 1-Loterry.o Multilevel_Feedback.o Processos.o Round-robins.o
-			gcc -o executavel main.o Controle.o Data.o Filas.o HRRN.o Loterry.o 1-Loterry.o Multilevel_Feedback.o Processos.o Round-robins.o
-			
-#-----> Distancia com o botão TAB ### e não com espaços
+5: executavel clean run5 && rm -rf executavel*
 
-main.o: main.c
-			gcc -o main.o -c main.c
+all: executavel clean run1 run2 run3 run4 run5 && rm -rf executavel*
 
-Controle.o: Controle.c
-			gcc -o Controle.o -c Controle.c
+SRC= $(wildcard *.c)
+OBJ= $(SRC:.c=.o)
 
-Data.o: Data.c
-			gcc -o Data.o -c Data.c
+executavel: $(OBJ)
+	$(CC) -o $@ $^
 
-Filas.o:  Filas.c
-			gcc -o Filas.o -c Filas.c
-
-HRRN.o:  HRRN.c
-			gcc -o HRRN.o -c HRRN.c
-
-Loterry.o:  Loterry.c
-			gcc -o Loterry.o -c Loterry.c
-
-1-Loterry.o:  1-Loterry.c
-			gcc -o 1-Loterry.o -c 1-Loterry.c
-
-Multilevel_Feedback.o:  Multilevel_Feedback.c
-			gcc -o Multilevel_Feedback.o -c Multilevel_Feedback.c
-
-Processos.o:  Processos.c
-			gcc -o Processos.o -c Processos.c
-
-Round-robins.o:  Round-robins.c
-			gcc -o Round-robins.o -c Round-robins.c
+%.o: %.c
+	@$(CC) -o $@ -c $<
 
 clean:
 			rm -rf *.o
@@ -55,15 +32,22 @@ mrproper: clean
 			rm -rf main
 
 run1: 
-			./executavel 1 && rm -rf executavel*
+			./executavel 1
 
 run2: 
-			./executavel 2 && rm -rf executavel*
+			./executavel 2
 
 run3: 
-			./executavel 3 && rm -rf executavel*
+			./executavel 3
 
 run4: 
-			./executavel 4 && rm -rf executavel*
+			./executavel 4
+
 run5: 
-			./executavel 5 && rm -rf executavel*
+			./executavel 5
+
+# $@    Nome da regra. 
+# $<    Nome da primeira dependência 
+# $^ 	Lista de dependências
+# $? 	Lista de dependências mais recentes que a regra.
+# $* 	Nome do arquivo sem sufixo
