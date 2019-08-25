@@ -35,11 +35,8 @@ PCB **createPCBList(int numberOfProcesses,char *file){
 		PCB *new = (PCB*)malloc(sizeof(PCB));
 		new->next=NULL;
 		new->process = processList[i];
-		new->activeTime=new->totalTime=new->blockedTime=new->responseTime=new->waitingTime=0;
-		new->creationTime=-1;
-		new->finishTime=-1;
-		new->_1priority=-1;
-		new->fila = -1;
+		new->activeTime=new->totalTime=new->blockedTime=new->waitingTime=0;
+		new->_1priority=new->fila =new->finishTime=new->creationTime=new->responseTime=-1;
 		PCBList[i]=new;	
 	}
 	return PCBList;
